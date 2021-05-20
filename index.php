@@ -58,7 +58,7 @@ new_exercise(5);
 // Fix the code so the for loop only pushes a-z in the array
 
 $arr = [];
-    for ($letter = 'a'; $letter <= 'z', strlen($letter)<2; $letter++) { // I added a second condition in for loop so the length to be <2 
+    for ($letter = 'a'; $letter <= 'z', strlen($letter)<2; $letter++) { // I added a second condition in for loop so the length to be <2 or you can add only one condition $letter != "aa"
         array_push($arr, $letter);   
     }
 
@@ -99,7 +99,7 @@ function randomHeroName()
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"]; 
     $heroes = [$hero_firstnames, $hero_lastnames];  //Parse error: syntax error, unexpected variable "$heroes" -> was missing ; on line 99
-    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)]; //count($heroes) is 11 so we have to deduct 1 becasue we start at index 0
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)]; //count($heroes) is 11 so we have to deduct 1 becasue we start at index 0. We can also  replace count($heroes)-1 with 1
 
     return $randname; //function have to return something so I changed echo to return
 }
@@ -134,3 +134,23 @@ echo login('wrong@example.be', 'wrong');
 //you can change things again!
 
 new_exercise(9);
+
+function isLinkValid(string $link) {
+    $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
+
+    foreach ($unacceptables as $unacceptable) {
+        if (strpos($link, $unacceptable) !== false) { // not sure why === true not work !!!!!! Read more here: https://www.php.net/manual/en/function.strpos.php
+            return 'Unacceptable Found<br />';
+        }
+    }
+    return 'Acceptable<br />';
+}
+//invalid link
+echo isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+echo isLinkValid('https://google.com');
+//VALID link
+echo isLinkValid('http://google.com');
+//VALID link
+echo isLinkValid('http://google.com/test.txt');
+
