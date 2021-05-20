@@ -19,3 +19,14 @@ function new_exercise($x) { //we add $x as a parameter, so when the function is 
 
 }
 new_exercise(2);
+
+// === Exercise 2 ===
+// Below we create a week array with all days of the week.
+// We then try to print the first day which is monday, execute the code and see what happens.
+
+$week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];  //variable week index start with 0
+$monday = $week[0]; //we change index from 1 to 0 becasue 1 is the index for the second position
+
+echo $monday;
+
+new_exercise(3);
