@@ -31,8 +31,8 @@ echo $monday;
 
 new_exercise(3);
 
-// === Exercise 3 ===
-// This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
+//=== Exercise 3 ===
+//This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
 
 $str = "Debugged ! Also very fun"; // Parse error: syntax error, unexpected token "!". The quotation marks used should be "" and not “”;
 echo substr($str, 0, 10);
@@ -66,3 +66,43 @@ print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical arra
 
 
 new_exercise(6);
+
+// === Final exercise ===
+// The fixed code should echo the following at the bottom:
+// Here is the name: $name - $name2
+// $name variables are decided as seen in the code, fix all the bugs whilst keeping the functionality!
+$arr = [];
+
+
+function combineNames($str1 = "", $str2 = "") {
+    $params = [$str1, $str2];
+    foreach($params as &$param) { //& to be able to assign a new value 
+        if ($param == "") {
+            $param = randomHeroName();
+        }
+    }
+    return implode( " - ", $params); // implode(): Argument #2 ($array) must be of type ?array &  changed echo to return so it wouldn't put the name first
+   
+}
+
+
+/* function randomGenerate($arr, $amount) {
+    for ($i = $amount; $i > 0; $i--) {
+        array_push($arr, randomHeroName());
+    }
+
+    return $amount;
+}  */
+
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"]; 
+    $heroes = [$hero_firstnames, $hero_lastnames];  //Parse error: syntax error, unexpected variable "$heroes" -> was missing ; on line 99
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)]; //count($heroes) is 11 so we have to deduct 1 becasue we start at index 0
+
+    return $randname; //function have to return something so I changed echo to return
+}
+
+echo "Here is the name:".combineNames();
+
