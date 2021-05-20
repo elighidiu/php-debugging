@@ -106,3 +106,12 @@ function randomHeroName()
 
 echo "Here is the name:".combineNames();
 
+new_exercise(7);
+
+function copyright(string $year) { // copyright(): Argument #1 ($year) must be of type int, string given so I changed the type from int to string becasue on line 115 the argument is a string not an integer 
+    return "&copy; $year BeCode";
+}
+//print the copyright
+echo copyright(date('Y'));
+
+new_exercise(8);
