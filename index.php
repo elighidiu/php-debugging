@@ -30,3 +30,11 @@ $monday = $week[0]; //we change index from 1 to 0 becasue 1 is the index for the
 echo $monday;
 
 new_exercise(3);
+
+// === Exercise 3 ===
+// This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
+
+$str = "Debugged ! Also very fun"; // Parse error: syntax error, unexpected token "!". The quotation marks used should be "" and not “”;
+echo substr($str, 0, 10);
+
+new_exercise(4);
